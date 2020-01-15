@@ -1,4 +1,4 @@
-# Front End Starter Pack (React, Webpack 4, Reactstrap, SASS, Slick and Autoprefixer)
+# Front End Starter Site (React, Webpack, Reactstrap, SASS and Cypress)
 This is a customised front end boilerplate using Webpack 4
 
 ## Webpack (Compiled CSS with Autoprefixer)
@@ -7,14 +7,8 @@ This is already configured to compile SASS to CSS and to apply autoprefixing to 
 ## Reactstrap
 Implementation of Reactstrap (Bootstrap 4) for a responsive layout
 
-## React Components
-Components for injecting custom fontawesome isons and running a slick carousel instance are in place
-
-### React Slick
-A component called SimpleSlider with configurable settings
-
-### React FontAwesome
-A component called FontAwesome where cool isons can be specified via an object through props from it's massive library 
+## Functional Components
+The site is set up using functional components and should use react hooks to deal with state management.
 
 ## Quick Start
 
@@ -34,7 +28,7 @@ Kyri Kyriacou
 
 ### Version
 
-1.0.0
+2.0.0
 
 ### License
 
