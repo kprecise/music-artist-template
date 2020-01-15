@@ -6,6 +6,9 @@ module.exports = {
   entry: [
     path.join(__dirname,'./src/', 'index.js')
   ],
+  devServer: {
+    port: 8082
+  },  
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'index_bundle.js'
