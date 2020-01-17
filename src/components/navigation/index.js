@@ -1,27 +1,55 @@
-import React from "react";
-import { Container, Row, Col } from 'reactstrap';
-import Navigation from './navigation';
-import { navigationLinks } from '../../data.js';
+import React, { useState } from 'react';
+import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap';
 
-import "./styles.scss";
+const Navigation = (
+  {
+    links,
+    tabs,
+    pills,
+    vertical,
+    justified
+  }
+) => {
 
-const NavigationPage = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen(!dropdownOpen);
+
   return (
-    <Container>
-      <Row>
-        <Col xs="12">
-          <h2>Navigation</h2>
-          <Navigation
-            links={navigationLinks}
-            tabs={false}
-            pills={true}
-            vertical={false}
-            justified={false}
-            />
-        </Col>
-      </Row>
-    </Container>
+    <Nav tabs={tabs} pills={pills} vertical={vertical} justified={justified}>
+    {
+      links.map(primaryItem => (
+        <React.Fragment key={primaryItem.id}>
+          <NavItem className="navItem">
+          { !primaryItem.secondaryNav &&
+            <NavLink
+              href={primaryItem.href}
+              name={primaryItem.name}
+              id={primaryItem.id}>
+              {primaryItem.name}
+            </NavLink>
+          }
+          </NavItem>
+          { primaryItem.secondaryNav &&
+            <Dropdown nav isOpen={dropdownOpen} id={primaryItem.id + '-secondary'} toggle={toggle}>
+              <DropdownToggle nav caret>
+                {primaryItem.name}
+              </DropdownToggle>
+              <DropdownMenu>
+              {
+                primaryItem.secondaryNavItem.map(secondaryItem => (
+                  <DropdownItem key={secondaryItem.id} id={secondaryItem.id}>{secondaryItem.name}</DropdownItem>
+                  )
+                )
+              }
+              </DropdownMenu>
+            </Dropdown>
+          }
+        </React.Fragment>
+      ))
+    }        
+    </Nav>
   )
-}
+};
 
-export default NavigationPage;
+export default Navigation;
