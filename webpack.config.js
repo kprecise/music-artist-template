@@ -7,7 +7,7 @@ module.exports = {
     path.join(__dirname,'./src/', 'index.js')
   ],
   devServer: {
-    port: 8082
+    port: 3000
   },  
   output: {
     path: path.join(__dirname, '/dist'),

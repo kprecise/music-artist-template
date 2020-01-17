@@ -1,13 +1,23 @@
 import React from "react";
+import { Heading, HeaderWrapper } from "./styledComponents.js";
 
-import "./index.scss";
+const Header = ({
+  mainImg,
+  text,
+  logo
+  }) => {
 
-const Header = () => {
-    return (
-      <div className="header">
-        <h2>Test Component</h2>
-      </div>
-    )        
-}
- 
+  return (
+    <header className="header">
+      <HeaderWrapper>
+        <Heading>{text}</Heading>
+        {logo &&
+        <img className="logo" src={logo} />
+        }
+        <img className="main" src={mainImg} />
+      </HeaderWrapper>
+    </header>
+  )
+};
+
 export default Header;

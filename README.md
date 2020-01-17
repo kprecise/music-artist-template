@@ -16,7 +16,7 @@ The site is set up using functional components and should use react hooks to dea
 # Install dependencies
 npm install
 
-# Serve on localhost:8082
+# Serve on localhost:3000
 npm run dev
 
 # Build for production
